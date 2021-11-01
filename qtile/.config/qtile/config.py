@@ -1,28 +1,9 @@
-# -*- coding: utf-8 -*
 import os
 import subprocess
-from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click, Match
+from libqtile.config import Key, Screen, Group, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
-import psutil
-
-def get_battery_status():
-    if psutil.sensors_battery().power_plugged:
-        return '  '
-    else:
-        return '  '
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
 
 mod = "mod4"  
 alt = "mod1"
@@ -85,7 +66,7 @@ keys = [
         lazy.spawn(
             f"bash {home}/.config/rofi/applets/applets/powermenu.sh"
         ),
-        desc="Shows rofi power-menu",
+        desc="Shows rofi power_menu",
     ),
 
     Key(
@@ -94,7 +75,7 @@ keys = [
         lazy.spawn(
             f"bash {home}/.config/rofi/applets/applets/battery.sh"
         ),
-        desc="Shows rofi power-menu",
+        desc="Shows rofi battery_status_menu",
     ),
 
     Key(
@@ -103,7 +84,7 @@ keys = [
         lazy.spawn(
             f"bash {home}/.config/rofi/applets/applets/time.sh"
         ),
-        desc="Shows rofi power-menu",
+        desc="Shows rofi time_menu",
     ),
 
 
@@ -113,7 +94,7 @@ keys = [
         lazy.spawn(
             f"bash {home}/.config/rofi/applets/applets/volume.sh"
         ),
-        desc="Shows rofi power-menu",
+        desc="Shows rofi volume_menu",
     ),
 
     
@@ -172,7 +153,7 @@ keys = [
         [mod, "shift"],
         "q",
         lazy.shutdown(),
-        desc="Shutdown Qtile     ;)"
+        desc="Shutdown Qtile"
     ),
     
     # Window controls
@@ -342,7 +323,6 @@ layout_theme = {
 
 layouts = [
     layout.MonadTall(**layout_theme),
-    #layout.Max(**layout_theme),
     layout.Floating(**layout_theme),
 ]
 
@@ -396,7 +376,6 @@ screens = [
                     visible_groups=["www", "vim", "sys", "doc", "chat","xyz","vid"],
                     **group_box_settings,
                 ),
-                
                 widget.Spacer(),
                 widget.Systray(
                     icon_size=18, padding=5, background=colors[0], foreground=colors[10]

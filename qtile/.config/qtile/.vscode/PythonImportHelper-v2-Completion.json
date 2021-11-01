@@ -1,0 +1,454 @@
+[
+    {
+        "label": "colored",
+        "importPath": "termcolor",
+        "description": "termcolor",
+        "isExtraImport": true,
+        "detail": "termcolor",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "KeyChord",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Key",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Screen",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Group",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Drag",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Click",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "Match",
+        "importPath": "libqtile.config",
+        "description": "libqtile.config",
+        "isExtraImport": true,
+        "detail": "libqtile.config",
+        "documentation": {}
+    },
+    {
+        "label": "lazy",
+        "importPath": "libqtile.command",
+        "description": "libqtile.command",
+        "isExtraImport": true,
+        "detail": "libqtile.command",
+        "documentation": {}
+    },
+    {
+        "label": "layout",
+        "importPath": "libqtile",
+        "description": "libqtile",
+        "isExtraImport": true,
+        "detail": "libqtile",
+        "documentation": {}
+    },
+    {
+        "label": "bar",
+        "importPath": "libqtile",
+        "description": "libqtile",
+        "isExtraImport": true,
+        "detail": "libqtile",
+        "documentation": {}
+    },
+    {
+        "label": "widget",
+        "importPath": "libqtile",
+        "description": "libqtile",
+        "isExtraImport": true,
+        "detail": "libqtile",
+        "documentation": {}
+    },
+    {
+        "label": "hook",
+        "importPath": "libqtile",
+        "description": "libqtile",
+        "isExtraImport": true,
+        "detail": "libqtile",
+        "documentation": {}
+    },
+    {
+        "label": "lazy",
+        "importPath": "libqtile.lazy",
+        "description": "libqtile.lazy",
+        "isExtraImport": true,
+        "detail": "libqtile.lazy",
+        "documentation": {}
+    },
+    {
+        "label": "psutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psutil",
+        "description": "psutil",
+        "detail": "psutil",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "dryscrape",
+        "description": "dryscrape",
+        "isExtraImport": true,
+        "detail": "dryscrape",
+        "documentation": {}
+    },
+    {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "bcolors",
+        "kind": 6,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "class bcolors:\n    HEADER = '\\033[95m'\n    OKBLUE = '\\033[94m'\n    OKCYAN = '\\033[96m'\n    OKGREEN = '\\033[92m'\n    WARNING = '\\033[93m'\n    FAIL = '\\033[91m'\n    ENDC = '\\033[0m'\n    BOLD = '\\033[1m'\n    UNDERLINE = '\\033[4m'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "get_battery_status",
+        "kind": 2,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "def get_battery_status():\n    if psutil.sensors_battery().power_plugged:\n        return '  '\n    else:\n        return '  '\nclass bcolors:\n    HEADER = '\\033[95m'\n    OKBLUE = '\\033[94m'\n    OKCYAN = '\\033[96m'\n    OKGREEN = '\\033[92m'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "start_once",
+        "kind": 2,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "def start_once():\n    home = os.path.expanduser(\"~\")\n    subprocess.call([home + \"/.config/qtile/autostart.sh\"])\n    subprocess.call([\"feh\",\"--bg-fill\",f\"{home}/.config/qtile/wallpaper.png\"])\n# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this\n# string besides java UI toolkits; you can see several discussions on the\n# mailing lists, GitHub issues, and other WM documentation that suggest setting\n# this string if your java app doesn't work correctly. We may as well just lie\n# and say that we're a working one by default.\n#",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "mod",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "mod = \"mod4\"  \nalt = \"mod1\"\nctrl = \"control\"\nmyTerm = \"alacritty\"  \nhome = os.path.expanduser('~')\nscripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "alt",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "alt = \"mod1\"\nctrl = \"control\"\nmyTerm = \"alacritty\"  \nhome = os.path.expanduser('~')\nscripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "ctrl",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "ctrl = \"control\"\nmyTerm = \"alacritty\"  \nhome = os.path.expanduser('~')\nscripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "myTerm",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "myTerm = \"alacritty\"  \nhome = os.path.expanduser('~')\nscripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",\n        lazy.spawn(f\"sh {scripts}/blur-lock.sh\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "home = os.path.expanduser('~')\nscripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",\n        lazy.spawn(f\"sh {scripts}/blur-lock.sh\"),\n        desc=\"launches i3-blur lock\",",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "scripts",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "scripts = home + \"/.config/qtile/scripts/\"\nmyConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",\n        lazy.spawn(f\"sh {scripts}/blur-lock.sh\"),\n        desc=\"launches i3-blur lock\",\n    ),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "myConfig",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "myConfig = home + \"/.config/qtile/config.py\"\nkeys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",\n        lazy.spawn(f\"sh {scripts}/blur-lock.sh\"),\n        desc=\"launches i3-blur lock\",\n    ),\n    Key(",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "keys",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "keys = [\n    # Some basic scripts\n    Key(\n        [ctrl, alt],\n        \"l\",\n        lazy.spawn(f\"sh {scripts}/blur-lock.sh\"),\n        desc=\"launches i3-blur lock\",\n    ),\n    Key(\n      [mod],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "workspaces",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "workspaces = [\n    {\n        \"name\": \"\",\n        \"key\": \"1\",\n        \"matches\": [Match(wm_class=\"firefox\")]\n    },\n    {\n        \"name\": \"\",\n        \"key\": \"2\",\n        \"matches\": [Match(wm_class=\"code\")],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "groups",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "groups = []\nfor workspace in workspaces:\n    matches = workspace[\"matches\"] if \"matches\" in workspace else None\n    groups.append(Group(workspace[\"name\"], matches=matches, layout=\"Monadtall\"))\n    keys.append(\n        Key(\n            [mod],\n            workspace[\"key\"],\n            lazy.group[workspace[\"name\"]].toscreen(),\n            desc=\"Focus this desktop\",",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "layout_theme",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "layout_theme = {\n    \"border_width\": 2,\n    \"margin\": 17,\n    \"border_focus\": \"#88c0d0\",\n    \"border_normal\": \"#1D2330\",\n}\nlayouts = [\n    layout.MonadTall(**layout_theme),\n    layout.Max(**layout_theme),\n    layout.Tile(shift_windows=True, **layout_theme,ratio=0.5),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "layouts",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "layouts = [\n    layout.MonadTall(**layout_theme),\n    layout.Max(**layout_theme),\n    layout.Tile(shift_windows=True, **layout_theme,ratio=0.5),\n    layout.Floating(**layout_theme),\n]\ncolors = [\n    [\"#2e3440\", \"#2e3440\"],  # 0. background\n    [\"#d8dee9\", \"#d8dee9\"],  # 1. foreground\n    [\"#3b4252\", \"#3b4252\"],  # 2. background lighter",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "colors = [\n    [\"#2e3440\", \"#2e3440\"],  # 0. background\n    [\"#d8dee9\", \"#d8dee9\"],  # 1. foreground\n    [\"#3b4252\", \"#3b4252\"],  # 2. background lighter\n    [\"#bf616a\", \"#bf616a\"],  # 3. red\n    [\"#a3be8c\", \"#a3be8c\"],  # 4. green\n    [\"#ebcb8b\", \"#ebcb8b\"],  # 5. yellow\n    [\"#b48ead\", \"#b48ead\"],  # 7. magenta\n    [\"#88c0d0\", \"#88c0d0\"],  # 8. cyan\n    [\"#84A7C0\", \"#84A7C0\"],  # 6. blue",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "shades",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "shades = [\n            ['#7491AE', '#7491AE'],\n            ['#67819A', '#67819A'],\n            ['#5A7187', '#5A7187'],\n            ['#4D6174', '#4D6174'],\n            ['#415161', '#415161'],\n            ['#34404D', '#34404D'],\n            ['#27303A', '#27303A'],\n            ['#1A2027', '#1A2027'],\n            ['#0D1013', '#0D1013'],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "widget_defaults",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "widget_defaults = dict(font=\"SauceCodePro Nerd Font\", fontsize=30, padding=2, background=colors[0])\nextension_defaults = widget_defaults.copy()\ngroup_box_settings = {\n    \"padding\": 3,\n    \"borderwidth\": 4,\n    \"active\": colors[9],\n    \"inactive\": colors[10],\n    \"disable_drag\": True,\n    \"rounded\": True,\n    \"highlight_color\": colors[2],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "extension_defaults",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "extension_defaults = widget_defaults.copy()\ngroup_box_settings = {\n    \"padding\": 3,\n    \"borderwidth\": 4,\n    \"active\": colors[9],\n    \"inactive\": colors[10],\n    \"disable_drag\": True,\n    \"rounded\": True,\n    \"highlight_color\": colors[2],\n    \"block_highlight_text_color\": colors[8],",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "group_box_settings",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "group_box_settings = {\n    \"padding\": 3,\n    \"borderwidth\": 4,\n    \"active\": colors[9],\n    \"inactive\": colors[10],\n    \"disable_drag\": True,\n    \"rounded\": True,\n    \"highlight_color\": colors[2],\n    \"block_highlight_text_color\": colors[8],\n    \"highlight_method\": \"block\",",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "screens",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "screens = [\n    Screen(\n        top=bar.Bar(\n            [\n                widget.CurrentLayout(\n                    foreground=colors[8],\n                    background=colors[2],\n                    fontsize=18,\n                    padding=18,\n                ),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "dgroups_key_binder",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "dgroups_key_binder = None\ndgroups_app_rules = []\nmain = None\nfollow_mouse_focus = True\nbring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "dgroups_app_rules",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "dgroups_app_rules = []\nmain = None\nfollow_mouse_focus = True\nbring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "main = None\nfollow_mouse_focus = True\nbring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),\n        Match(wm_type=\"splash\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "follow_mouse_focus",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "follow_mouse_focus = True\nbring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),\n        Match(wm_type=\"splash\"),\n        Match(wm_type=\"dialog\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "bring_front_click",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "bring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),\n        Match(wm_type=\"splash\"),\n        Match(wm_type=\"dialog\"),\n        Match(wm_class=\"file_progress\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "cursor_warp",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "cursor_warp = False\nfloating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),\n        Match(wm_type=\"splash\"),\n        Match(wm_type=\"dialog\"),\n        Match(wm_class=\"file_progress\"),\n        Match(wm_class=\"confirm\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "floating_layout",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "floating_layout = layout.Floating(\n    float_rules=[\n        Match(wm_type=\"utility\"),\n        # Match(wm_type='notification'),\n        Match(wm_type=\"toolbar\"),\n        Match(wm_type=\"splash\"),\n        Match(wm_type=\"dialog\"),\n        Match(wm_class=\"file_progress\"),\n        Match(wm_class=\"confirm\"),\n        Match(wm_class=\"dialog\"),",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "auto_fullscreen",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "auto_fullscreen = True\nfocus_on_window_activation = \"smart\"\n@hook.subscribe.startup_once\ndef start_once():\n    home = os.path.expanduser(\"~\")\n    subprocess.call([home + \"/.config/qtile/autostart.sh\"])\n    subprocess.call([\"feh\",\"--bg-fill\",f\"{home}/.config/qtile/wallpaper.png\"])\n# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this\n# string besides java UI toolkits; you can see several discussions on the\n# mailing lists, GitHub issues, and other WM documentation that suggest setting",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "focus_on_window_activation",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "focus_on_window_activation = \"smart\"\n@hook.subscribe.startup_once\ndef start_once():\n    home = os.path.expanduser(\"~\")\n    subprocess.call([home + \"/.config/qtile/autostart.sh\"])\n    subprocess.call([\"feh\",\"--bg-fill\",f\"{home}/.config/qtile/wallpaper.png\"])\n# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this\n# string besides java UI toolkits; you can see several discussions on the\n# mailing lists, GitHub issues, and other WM documentation that suggest setting\n# this string if your java app doesn't work correctly. We may as well just lie",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "wmname",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "wmname = \"LG3D\"",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "get_shade",
+        "kind": 2,
+        "importPath": "shades",
+        "description": "shades",
+        "peekOfCode": "def get_shade(hex_code=\"#\" + sys.argv[1], mode=sys.argv[2]) -> list[list[str]]:\n    res = Session()\n    res.visit(f\"https://maketintsandshades.com/{hex_code}\")\n    soup = BeautifulSoup(res.body(), \"lxml\")\n    color_shades = (\n        soup.find(\"div\", attrs={\"id\": \"tints-and-shades\"}).find(\"tbody\").find_all(\"tr\")\n    )\n    dark, light = color_shades[1], color_shades[3]\n    light_shades = [[\"#\" + i.text] * 2 for i in light.find_all(\"td\")]\n    dark_shades = [[\"#\" + i.text] * 2 for i in dark.find_all(\"td\")]",
+        "detail": "shades",
+        "documentation": {}
+    }
+]
