@@ -1,264 +1,134 @@
 import os
 import subprocess
-from libqtile.config import Key, Screen, Group, Match
-from libqtile.command import lazy
-from libqtile import layout, bar, widget, hook
-from libqtile.lazy import lazy
 
-mod = "mod4"  
-alt = "mod1"
-ctrl = "control"
-myTerm = "alacritty"  
-home = os.path.expanduser('~')
-scripts = home + "/.config/qtile/scripts/"
+from libqtile.layout import MonadTall, Floating
+from libqtile.widget import Spacer, Systray, GroupBox, WidgetBox, Sep, Clock, Volume, TextBox
+from libqtile.config import DropDown, Key, ScratchPad, Screen, Group, Match
+from libqtile import bar, hook
+from libqtile.lazy import lazy
+from libqtile.config import EzKey as Keybind
+
+terminal = "alacritty"
+home = os.path.expanduser("~")
+scripts = home + "/.config/qtile/scripts"
 myConfig = home + "/.config/qtile/config.py"
+rofi_path = home + "/.config/rofi"
 
 keys = [
-    # Some basic scripts
-    Key(
-        [ctrl, alt],
-        "l",
-        lazy.spawn(f"sh {scripts}/blur-lock.sh"),
-        desc="launches i3-blur lock",
-    ),
-    Key(
-      [mod],
-      "b",
-      lazy.hide_show_bar("bottom"),
-    ),
-    #LAUNCHING APPS with Ctrl + Alt + Key
-    Key(
-        [ctrl, alt],
-        "p",
-        lazy.spawn("planner"),
-        desc=" Launches Planner",
+    Keybind(
+        "M-S-t", lazy.spawn(f"bash {rofi_path}/tmux"), desc="Launch rofi tmux-switcher"
     ),
 
-    Key(
-        [],
-        "Print",
+    Keybind(
+        "M-S-a", lazy.spawn(f"bash {rofi_path}/audio_changer"), desc="Launch rofi tmux-switcher"
+    ),
+    Keybind(
+        "M-S-<Return>",
+        lazy.spawn(f"bash {rofi_path}/window_list"),
+        desc="Launch rofi app-launcer",
+    ),
+    Keybind("M-b", lazy.hide_show_bar("bottom"), desc="Toogle bar visibility"),
+    # LAUNCHING APPS with Ctrl + Alt + Key
+    Keybind(
+        "C-A-l",
+        lazy.spawn(f"bash {scripts}/blur-lock.sh"),
+        desc="launches i3-blur lock",
+    ),
+    Keybind(
+        "<Print>",
         lazy.spawn("gnome-screenshot -i"),
         desc="Screen_Shot",
     ),
-    
-    Key(
-        [ctrl, alt],
-        "b",
+    Keybind(
+        "C-A-b",
         lazy.spawn("firefox"),
         desc="Launches Firefox Browser",
     ),
-    Key(
-        [ctrl, alt],
-        "e",
+    Keybind(
+        "C-A-e",
         lazy.spawn("evince"),
         desc="Launces Evince PDF Reader",
     ),
-    Key([mod],
-        "Return",
-        lazy.spawn(myTerm),
+    Keybind(
+        "M-<Return>",
+        lazy.spawn(terminal),
         desc="Launches My Terminal with fish shell",
     ),
-
-   # The essentials
-    Key(
-        [mod],
-        "x",
-        lazy.spawn(
-            f"bash {home}/.config/rofi/applets/applets/powermenu.sh"
-        ),
+    # The essentials
+    Keybind(
+        "M-x",
+        lazy.spawn(f"bash {rofi_path}/powermenu.sh"),
         desc="Shows rofi power_menu",
     ),
-
-    Key(
-        [mod],
-        "z",
-        lazy.spawn(
-            f"bash {home}/.config/rofi/applets/applets/battery.sh"
-        ),
-        desc="Shows rofi battery_status_menu",
-    ),
-
-    Key(
-        [mod],
-        "t",
-        lazy.spawn(
-            f"bash {home}/.config/rofi/applets/applets/time.sh"
-        ),
-        desc="Shows rofi time_menu",
-    ),
-
-
-    Key(
-        [mod],
-        "v",
-        lazy.spawn(
-            f"bash {home}/.config/rofi/applets/applets/volume.sh"
-        ),
-        desc="Shows rofi volume_menu",
-    ),
-
-    
-    Key(
-        [mod, "shift"],
-        "Up",
+    Keybind(
+        "M-S-<Up>",
         lazy.spawn("amixer -D pulse sset Master 2%+"),
         desc="Granuler control over volume",
-        ),
-
-    Key(
-        [mod, "shift"],
-        "Down",
+    ),
+    Keybind(
+        "M-S-<Down>",
         lazy.spawn("amixer -D pulse sset Master 2%-"),
         desc="Granular control over volume",
     ),
-    Key(
-        [mod],
-        "Up",
+    Keybind(
+        "M-<Up>",
         lazy.spawn("amixer -D pulse sset Master 5%+"),
         desc="Increase Volume (pulse so that it automatically recognizes inserted devices)",
     ),
-    Key(
-        [mod],
-        "Down",
+    Keybind(
+        "M-<Down>",
         lazy.spawn("amixer -D pulse sset Master 5%-"),
         desc="Decrease Volume (pulse so that it automatically recognizes inserted devices)",
     ),
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.spawn(f"bash {home}/.config/rofi/launchers/text/launcher.sh"),
-        desc="Run Launcher",
-    ),
-    
-    #BASIC UTILITIES
-    Key(
-        [mod],
-        "Tab",
+    # BASIC UTILITIES
+    Keybind(
+        "M-<Tab>",
         lazy.next_layout(),
         desc="Toggle through different layouts",
     ),
-    Key(
-        [mod],
-        "q",
-        lazy.window.kill(),
-        desc="Kill/Quit active window "
-    ),
-    Key(
-        [mod, "shift"],
-        "r",
+    Keybind("M-q", lazy.window.kill(), desc="Kill/Quit active window "),
+    Keybind(
+        "M-S-r",
         lazy.restart(),
-        desc="Restart Qtile without disturbing any other opened windows"
+        desc="Soft Reload",
     ),
-    Key(
-        [mod, "shift"],
-        "q",
-        lazy.shutdown(),
-        desc="Shutdown Qtile"
-    ),
-    
+    Keybind("M-S-q", lazy.shutdown(), desc="Shutdown Qtile"),
     # Window controls
-    Key(
-        [mod],
-        "Right",
-        lazy.screen.next_group(),
-        desc="Move to next Group"
-    ),
-    Key(
-        [mod],
-        "Left",
-        lazy.screen.prev_group(),
-        desc="Move to previous Group"
-    ),
-    Key(
-        [mod],
-        "k",
-        lazy.layout.down(),
-        desc="Move focus down in current stack pane"
-    ),
-    Key(
-        [mod],
-        "j",
-        lazy.layout.up(),
-        desc="Move focus up in current stack pane"
-    ),
-    Key(
-        [mod, "shift"],
-        "k",
-        lazy.layout.shuffle_down(),
-        desc="Move windows down in current stack",
-    ),
-    Key(
-        [mod, "shift"],
-        "j",
-        lazy.layout.shuffle_up(),
-        desc="Move windows up in current stack",
-    ),
-    Key(
-        [mod],
-        "h",
+    Keybind("M-<Right>", lazy.screen.next_group(), desc="Move to next Group"),
+    Keybind("M-<Left>", lazy.screen.prev_group(), desc="Move to previous Group"),
+    Keybind(
+        "M-h",
         lazy.layout.grow(),
-        lazy.layout.increase_nmaster(),
-        desc="Expand window (MonadTall), increase number in master pane (Tile)",
     ),
-    Key(
-        [mod],
-        "l",
+    Keybind(
+        "M-l",
         lazy.layout.shrink(),
-        lazy.layout.decrease_nmaster(),
-        desc="Shrink window (MonadTall), decrease number in master pane (Tile)",
     ),
-    Key(
-        [mod],
-        "n",
-        lazy.layout.normalize(),
-        desc="normalize window size ratios"
-        ),
-    Key(
-        [mod],
-        "m",
+    Keybind("M-n", lazy.layout.normalize(), desc="normalize window size ratios"),
+    Keybind(
+        "M-m",
         lazy.layout.maximize(),
         desc="toggle window between minimum and maximum sizes",
     ),
-    Key(
-        [mod, "shift"],
-        "f",
-        lazy.window.toggle_floating(),
-        desc="toggle floating"
-    ),
-    Key(
-        [mod, "shift"],
-        "m",
-        lazy.window.toggle_fullscreen(),
-        desc="toggle fullscreen"
-    ),
+    Keybind("M-S-f", lazy.window.toggle_floating(), desc="toggle floating"),
+    Keybind("M-S-m", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
     # Stack controls
-    Key(
-        [mod, "shift"],
-        "space",
+    Keybind(
+        "M-S-<space>",
         lazy.layout.rotate(),
         lazy.layout.flip(),
         desc="Switch which side main pane occupies (XmonadTall)",
     ),
-    Key(
-        [mod],
-        "space",
+    Keybind(
+        "M-<space>",
         lazy.layout.next(),
         desc="Switch window focus to other pane(s) of stack",
     ),
-    Key(
-        [mod, "control"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    Keybind("M-s", lazy.group["scratchpad"].dropdown_toggle("term")),
 ]
 
 workspaces = [
-    {
-        "name": "www",
-        "key": "1",
-        "matches": [Match(wm_class="firefox")]
-    },
+    {"name": "www", "key": "1", "matches": [Match(wm_class="firefox")]},
     {
         "name": "vim",
         "key": "2",
@@ -267,7 +137,6 @@ workspaces = [
     {
         "name": "sys",
         "key": "3",
-        "matches": []
     },
     {
         "name": "doc",
@@ -280,34 +149,31 @@ workspaces = [
         "matches": [Match(wm_class="discord"), Match(wm_class="telegram-desktop")],
     },
     {
-       "name": "xyz",
-       "key": "6",
-        "matches": [],
+        "name": "xyz",
+        "key": "6",
     },
-
     {
-       "name": "vid",
-       "key": "7",
+        "name": "vid",
+        "key": "7",
         "matches": [Match(wm_class="vlc")],
     },
 ]
-groups = []
+
+groups = [ScratchPad("scratchpad", [DropDown("term", "alacritty -e tmux new -s scratch", height=0.9,opacity=1)])]
 
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None
     groups.append(Group(workspace["name"], matches=matches, layout="Monadtall"))
     keys.append(
-        Key(
-            [mod],
-            workspace["key"],
+        Keybind(
+            f"M-{workspace['key']}",
             lazy.group[workspace["name"]].toscreen(),
             desc="Focus this desktop",
         )
     )
     keys.append(
-        Key(
-            [mod, "shift"],
-            workspace["key"],
+        Keybind(
+            f"M-S-{workspace['key']}",
             lazy.window.togroup(workspace["name"]),
             desc="Move focused window to another group",
         )
@@ -320,11 +186,6 @@ layout_theme = {
     "border_focus": "#88c0d0",
     "border_normal": "#1D2330",
 }
-
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Floating(**layout_theme),
-]
 
 colors = [
     ["#2e3440", "#2e3440"],  # 0. background
@@ -344,7 +205,9 @@ colors = [
     ["#242831", "#242831"],  # 14. super dark background
 ]
 
-widget_defaults = dict(font="SauceCodePro Nerd Font", fontsize=30, padding=2, background=colors[0])
+widget_defaults = dict(
+    font="SauceCodePro Nerd Font", fontsize=30, padding=2, background=colors[0]
+)
 extension_defaults = widget_defaults.copy()
 
 group_box_settings = {
@@ -355,7 +218,7 @@ group_box_settings = {
     "disable_drag": True,
     "rounded": True,
     "highlight_color": colors[2],
-    "block_highlight_text_color": colors[11],
+    "block_highlight_text_color": colors[12],
     "highlight_method": "block",
     "this_current_screen_border": colors[0],
     "this_screen_border": colors[2],
@@ -370,19 +233,48 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(
-                    font="SauceCodePro Nerd Font",
+                GroupBox(
                     fontsize=17,
-                    visible_groups=["www", "vim", "sys", "doc", "chat","xyz","vid"],
+                    font="SauceCodePro Nerd Font Semi",
+                    visible_groups=["www", "vim", "sys", "doc", "chat", "xyz", "vid"],
                     **group_box_settings,
                 ),
-                widget.Spacer(),
-                widget.Systray(
-                    icon_size=18, padding=5, background=colors[0], foreground=colors[10]
+                Spacer(),
+                Clock(
+                    font="SauceCodePro Nerd Font Semi",
+                    fontsize=16,
+                    foreground=colors[12],
+                    format="  %A, %B %d [ %H:%M ]  ",
                 ),
-                widget.Spacer(length=20, background = colors[0]),
+                Sep(linewidth=3, size_percent=70),
+                WidgetBox(
+                    fontsize=18,
+                    close_button_location="right",
+                    text_closed="  ",
+                    text_open="  ",
+                    widgets=[
+                        TextBox(text="  ", fontsize=16),
+                        Volume(device="pulse",fontsize=16,update_interval=2),
+                    ],
+                ),
+                WidgetBox(
+                    fontsize=22,
+                    close_button_location="right",
+                    text_closed=" ﰰ ",
+                    text_open=" ﰳ ",
+                    widgets=[
+                        Systray(
+                            icon_size=18,
+                            padding=5,
+                            background=colors[0],
+                            foreground=colors[10],
+                        ),
+                        Spacer(length=10, background=colors[0]),
+                    ],
+                ),
+                Spacer(length=10, background=colors[0]),
             ],
-            30,
+            size=30,
         ),
         top=bar.Gap(0),
         left=bar.Gap(0),
@@ -397,7 +289,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 
-floating_layout = layout.Floating(
+floating_layout = Floating(
     float_rules=[
         Match(wm_type="utility"),
         # Match(wm_type='notification'),
@@ -414,19 +306,23 @@ floating_layout = layout.Floating(
         Match(wm_class="toolbar"),
         Match(wm_class="feh"),
         Match(func=lambda c: c.has_fixed_size()),
-    ]
+    ],
+    border_width=3,
+    border_focus="#88c0d0",
 )
 
+layouts = [
+    MonadTall(**layout_theme),
+]
 
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-
 
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
-    subprocess.call(["feh","--bg-fill",f"{home}/.config/qtile/wallpaper.png"])
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
