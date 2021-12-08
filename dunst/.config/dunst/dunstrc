@@ -1,5 +1,7 @@
 [global]
     font = SauceCodePro Nerd Font 12
+    corner_radius = 0
+    hide_duplicate_count = true
     markup = full
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -17,11 +19,11 @@
     idle_threshold = 120
     monitor = 0
     follow = mouse
-    sticky_history = yes
+    sticky_history = no
     history_length = 20
     show_indicators = yes
     line_height = 1
-    separator_height = 2
+    separator_height = 0
     padding = 12
     horizontal_padding = 10
     separator_color = auto
@@ -32,6 +34,7 @@
     icon_folders = /usr/share/icons/breeze/apps/48/:/usr/share/icons/breeze/actions/48/:/usr/share/icons/breeze/places/48/:/usr/share/icons/breeze/status/48/
     frame_color = "#3b4252"
     separator_color = auto
+    /* notification_limit=1 */
 
 [shortcuts]
     close = ctrl+space
@@ -41,7 +44,7 @@
     
 [nord_low]
     msg_urgency = low
-    background = "#4c566a"
+    background = "#81a1c1"
     foreground = "#2e3440"
 
 [nord_normal]

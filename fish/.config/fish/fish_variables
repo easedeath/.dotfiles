@@ -3,7 +3,8 @@
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_jomik_2F_fish_2D_gruvbox_files:/home/heks/\x2econfig/fish/functions/theme_gruvbox\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/heks/\x2econfig/fish/functions/fisher\x2efish\x1e/home/heks/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejomik/fish\x2dgruvbox
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/heks/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/heks/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/heks/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/heks/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/heks/\x2econfig/fish/functions/nvm\x2efish\x1e/home/heks/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/heks/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejomik/fish\x2dgruvbox\x1ejorgebucaran/nvm\x2efish
 SETUVAR fish_color_autosuggestion:\x23B48EAD
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x238FBCBB
@@ -34,3 +35,5 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:black
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_user_paths:/home/heks/\x2efzf/bin
+SETUVAR nvm_data:/home/heks/\x2elocal/share/nvm
+SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
