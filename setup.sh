@@ -2,7 +2,7 @@
 
 # UPDATE system and install packages
 sudo pacman -Syyu
-sudo pacman -S yay
+sudo pacman --noconfirm -S yay
 yay --needed --noconfirm -S - < packages.txt
 
 # VIM Plugin manager
@@ -12,9 +12,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 mkdir -p ~/.config/nvim/undodir # vim undos for life
 
 # STOW all the folders
-for f in *;
-do
-  if [[ -d ${f} ]];
-  then echo ${f}
+for f in *; do
+  if [[ -d ${f} ]];then 
+    stow ${f}
   fi
 done
