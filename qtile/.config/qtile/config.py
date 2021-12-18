@@ -244,19 +244,17 @@ screens = [
                     font="SauceCodePro Nerd Font Semi",
                     fontsize=16,
                     foreground=colors[12],
-                    format="  %A, %B %d [ %H:%M ]  ",
+                    format="  %A, %B %d ",
+                ),
+                Clock(
+                    font="SauceCodePro Nerd Font Semi",
+                    fontsize=16,
+                    foreground=colors[4],
+                    format="[ %H:%M ]  ",
                 ),
                 Sep(linewidth=3, size_percent=70),
-                WidgetBox(
-                    fontsize=18,
-                    close_button_location="right",
-                    text_closed="  ",
-                    text_open="  ",
-                    widgets=[
-                        TextBox(text="  ", fontsize=16),
-                        Volume(device="pulse",fontsize=16,update_interval=2),
-                    ],
-                ),
+                TextBox(text="  ", fontsize=16, foreground=colors[11]),
+                Volume(device="pulse",fontsize=16),
                 WidgetBox(
                     fontsize=22,
                     close_button_location="right",

@@ -59,6 +59,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias vim='nvim'
+# alias tmux='tmux -f ~/.tmux.conf'
 alias mv='mv -i'
 alias rm='rm -rfi'
 
@@ -75,16 +76,14 @@ alias yaysua='paru -Sua --noconfirm'              # update only AUR pkgs
 alias yaysyu='paru -Syu --noconfirm'              # update standard pkgs and AUR pkgs
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
-#alias python='python3'
 
 # adding flags
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 
 #-----MISC
-#nvm install 16.0.0
-alias ew='~/Downloads/eww/target/release/eww'
 
+alias dclean='docker system prune -a --volumes' 
 
 alias fetch='~/Public/fm6000 -c=bright_red -n -m=7 -g=7 -l=16'
 alias cf='rm -rf ~/CP && mkdir ~/CP && git init ~/CP' #competetive coding :)
@@ -92,9 +91,16 @@ alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
 alias lonn='xrandr --output eDP1 --auto'
 #-----GREP COLOR
 alias grep='grep --color=auto'
+
+# Docker 
+alias docker="sudo docker"
+
 colorscript -e crunchbang-mini 
+
+
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
 
 starship init fish | source
 # export PYTHONDONTWRITEBYTECODE=1
-#export PATH="$HOME/.emacs.d/bin:$PATH"
-
+export PATH="$HOME/.emacs.d/bin:$PATH"

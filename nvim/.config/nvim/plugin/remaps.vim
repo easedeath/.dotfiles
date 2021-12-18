@@ -12,6 +12,7 @@ noremap <S-Tab> :bp<CR>
 noremap <Leader><Tab> :Bw<CR>
 noremap <Leader><S-Tab> :Bw!<CR>
 noremap <C-t> :tabnew split<CR>
+noremap <C-q> :bd<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })

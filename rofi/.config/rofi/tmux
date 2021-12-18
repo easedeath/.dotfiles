@@ -17,6 +17,6 @@ else
   if [[ -z $ok ]]; then
     echo "No such session"
   else
-    alacritty -e tmux attach -t "${TMUX_SESSION}" &
+    alacritty -e tmux -u -f ~/.tmux.conf attach -t "${TMUX_SESSION}" &
   fi
 fi

@@ -5,8 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/plenary.nvim'
 
 " MAKING LIFE EASIER
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'nvim-treesitter/playground'
 Plug 'nvim-telescope/telescope.nvim' " oh yeah
 
@@ -30,6 +29,7 @@ Plug 'arcticicestudio/nord-vim' " nord colorscheme
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'folke/todo-comments.nvim'
 
 " LANGAUGE STUFF
 Plug 'rust-lang/rust.vim' 
