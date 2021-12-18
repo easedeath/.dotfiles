@@ -159,7 +159,7 @@ workspaces = [
     },
 ]
 
-groups = [ScratchPad("scratchpad", [DropDown("term", "alacritty -e tmux new -s scratch", height=0.9,opacity=1)])]
+groups = [ScratchPad("scratchpad", [DropDown("term", "alacritty -e tmux -u new -s scratch", height=0.9,opacity=1)])]
 
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None
