@@ -64,10 +64,10 @@ alias mv='mv -i'
 alias rm='rm -rfi'
 
 #----LS OUTPUT
-alias ls='exa -F --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+# alias ls='exa -F --color=always --group-directories-first' # my preferred listing
+# alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+# alias ll='exa -l --color=always --group-directories-first'  # long format
+# alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # pacman and yay
 alias pacman='sudo pacman'
@@ -94,13 +94,9 @@ alias grep='grep --color=auto'
 
 # Docker 
 alias docker="sudo docker"
+alias docker-compose="sudo docker-compose"
 
 colorscript -e crunchbang-mini 
 
-
-export LC_ALL=en_IN.UTF-8
-export LANG=en_IN.UTF-8
-
 starship init fish | source
 # export PYTHONDONTWRITEBYTECODE=1
-export PATH="$HOME/.emacs.d/bin:$PATH"

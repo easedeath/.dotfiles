@@ -5,9 +5,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/plenary.nvim'
 
 " MAKING LIFE EASIER
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
-Plug 'nvim-telescope/telescope.nvim' " oh yeah
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'sbdchd/neoformat'
 
 " AUTOCOMPLETE BABY
 Plug 'neovim/nvim-lspconfig'
@@ -16,12 +17,12 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'hrsh7th/vim-vsnip'
 
 " GIT STUFF
-Plug 'airblade/vim-gitgutter' 
-Plug 'tpope/vim-fugitive' 
-Plug 'ap/vim-css-color' 
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'ap/vim-css-color'
 
 " MISCS
-Plug 'Raimondi/delimitMate' 
+Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 
 "EYE CANDY
@@ -32,19 +33,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'folke/todo-comments.nvim'
 
 " LANGAUGE STUFF
-Plug 'rust-lang/rust.vim' 
-Plug 'rhysd/vim-clang-format' 
-Plug 'dag/vim-fish' 
-Plug 'cespare/vim-toml' 
+Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'dag/vim-fish'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
-let g:rustfmt_autosave = 1
 
+" let g:rustfmt_autosave = 1
 let mapleader = " "
 
-autocmd FileType c ClangFormatAutoEnable
-autocmd FileType cpp ClangFormatAutoEnable
+nnoremap <leader>ff :Neoformat<cr>
 
 colorscheme nord
-
