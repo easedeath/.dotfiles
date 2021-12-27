@@ -4,7 +4,7 @@ function bluers
 end
 
 function com
-    g++ $argv[1] && ./a.out 
+    g++ $argv[1] && ./a.out
 end
 
 
@@ -13,13 +13,13 @@ function conf
 
     if [ $val = "fish" ]
         nvim ~/.config/fish/config.fish
-    
+
     else if [ $val = "starship" ]
         nvim ~/.config/starship.toml
-    
+
     else if [ $val = "qtile" ]
         nvim ~/.config/qtile/config.py
-    
+
     else if [ $val = "alacritty" ]
         nvim ~/.config/alacritty/alacritty.yml
 
@@ -55,19 +55,19 @@ set ANDROID_SDK '/home/heks/Android/Sdk'
 #----------------------------- ALIASES --------------------------------
 
 #----DIRECTORY CHANGE
-alias ..='cd ..' 
+alias ..='cd ..'
 alias ...='cd ../..'
 
 alias vim='nvim'
-# alias tmux='tmux -f ~/.tmux.conf'
+alias tmux='tmux -u'
 alias mv='mv -i'
 alias rm='rm -rfi'
 
 #----LS OUTPUT
-# alias ls='exa -F --color=always --group-directories-first' # my preferred listing
-# alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-# alias ll='exa -l --color=always --group-directories-first'  # long format
-# alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='exa -F --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # pacman and yay
 alias pacman='sudo pacman'
@@ -83,7 +83,7 @@ alias free='free -m'                      # show sizes in MB
 
 #-----MISC
 
-alias dclean='docker system prune -a --volumes' 
+alias dclean='docker system prune -a --volumes'
 
 alias fetch='~/Public/fm6000 -c=bright_red -n -m=7 -g=7 -l=16'
 alias cf='rm -rf ~/CP && mkdir ~/CP && git init ~/CP' #competetive coding :)
@@ -92,11 +92,12 @@ alias lonn='xrandr --output eDP1 --auto'
 #-----GREP COLOR
 alias grep='grep --color=auto'
 
-# Docker 
+# Docker
 alias docker="sudo docker"
 alias docker-compose="sudo docker-compose"
 
-colorscript -e crunchbang-mini 
+colorscript -e crunchbang-mini
 
 starship init fish | source
+# export PATH=$PATH:$HOME/.cargo/bin
 # export PYTHONDONTWRITEBYTECODE=1

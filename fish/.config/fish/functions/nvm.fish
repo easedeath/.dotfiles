@@ -204,3 +204,7 @@ function _nvm_node_info
         console.log(process.execPath.replace(require('os').homedir(), '~'))
     "
 end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end

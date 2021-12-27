@@ -9,10 +9,10 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
-noremap <Leader><Tab> :Bw<CR>
-noremap <Leader><S-Tab> :Bw!<CR>
-noremap <C-t> :tabnew split<CR>
 noremap <C-q> :bd<CR>
+
+"remove blank lines
+nnoremap <leader>xx <cmd>g/^$/d<cr>
 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
@@ -44,4 +44,3 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
-
