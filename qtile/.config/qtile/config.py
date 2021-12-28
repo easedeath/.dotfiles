@@ -167,7 +167,7 @@ for workspace in workspaces:
     keys.append(
         Keybind(
             f"M-{workspace['key']}",
-            lazy.group[workspace["name"]].toscreen(),
+            lazy.group[workspace["name"]].toscreen(toggle=True),
             desc="Focus this desktop",
         )
     )
