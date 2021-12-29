@@ -1,8 +1,4 @@
 #--------CUSTOM FUNCTIONS---------------
-function bluers
-    systemctl restart bluetooth.service
-end
-
 function com
     g++ $argv[1] && ./a.out
 end
