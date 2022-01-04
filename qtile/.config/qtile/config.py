@@ -7,12 +7,26 @@ from libqtile.config import DropDown, Key, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
 from libqtile.lazy import lazy
 from libqtile.config import EzKey as Keybind
+from libqtile.log_utils import logger
 
 terminal = "alacritty"
 home = os.path.expanduser("~")
 scripts = home + "/.config/qtile/scripts"
 myConfig = home + "/.config/qtile/config.py"
 rofi_path = home + "/.config/rofi"
+
+
+def scratchpad_connect() -> str:
+    try:
+        sessions = subprocess.check_output("tmux list-sessions -F #S".split()).decode().splitlines()
+        # logger.warning(sessions)
+        if 'scratch' in sessions:
+            return "tmux -u attach scratch"
+        else:
+            return "tmux -u new -s scratch"
+    except:
+        return "tmux -u new -s scratch"
+
 
 keys = [
     Keybind(
@@ -35,7 +49,7 @@ keys = [
         desc="launches i3-blur lock",
     ),
     Keybind(
-        "<Print>",
+        "<Insert>",
         lazy.spawn("gnome-screenshot -i"),
         desc="Screen_Shot",
     ),
@@ -159,7 +173,7 @@ workspaces = [
     },
 ]
 
-groups = [ScratchPad("scratchpad", [DropDown("term", "alacritty -e tmux -u new -s scratch", height=0.9,opacity=1)])]
+groups = [ScratchPad("scratchpad", [DropDown("term", f"alacritty -e {scratchpad_connect()}", height=0.9,opacity=1)])]
 
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None

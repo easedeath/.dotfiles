@@ -68,8 +68,8 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 # pacman and yay
 alias pacman='sudo pacman'
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua='paru -Sua --noconfirm'              # update only AUR pkgs
-alias yaysyu='paru -Syu --noconfirm'              # update standard pkgs and AUR pkgs
+alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
 
