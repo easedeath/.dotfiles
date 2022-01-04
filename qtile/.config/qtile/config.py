@@ -167,8 +167,12 @@ workspaces = [
         "key": "6",
     },
     {
-        "name": "vid",
+        "name": "abc",
         "key": "7",
+    },
+    {
+        "name": "vid",
+        "key": "8",
         "matches": [Match(wm_class="vlc")],
     },
 ]
@@ -250,7 +254,7 @@ screens = [
                 GroupBox(
                     fontsize=17,
                     font="SauceCodePro Nerd Font Semi",
-                    visible_groups=["www", "vim", "sys", "doc", "chat", "xyz", "vid"],
+                    visible_groups=["www", "vim", "sys", "doc", "chat", "xyz", "abc", "vid"],
                     **group_box_settings,
                 ),
                 Spacer(),
