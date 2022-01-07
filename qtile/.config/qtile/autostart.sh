@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/bash
 lxsession &
 picom --config ~/.config/picom/picom.conf &
 nitrogen --restore &

@@ -41,7 +41,7 @@ keys = [
         lazy.spawn(f"bash {rofi_path}/window_list"),
         desc="Launch rofi app-launcer",
     ),
-    Keybind("M-b", lazy.hide_show_bar("bottom"), desc="Toogle bar visibility"),
+    Keybind("M-b", lazy.spawn("blueberry"), desc="Toogle bar visibility"),
     # LAUNCHING APPS with Ctrl + Alt + Key
     Keybind(
         "C-A-l",
