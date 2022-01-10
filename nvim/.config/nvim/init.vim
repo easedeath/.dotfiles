@@ -42,7 +42,7 @@ Plug 'folke/todo-comments.nvim'
 
 " LANGAUGE STUFF
 Plug 'rust-lang/rust.vim'
-Plug 'simrat39/rust-tools.nvim'
+" Plug 'simrat39/rust-tools.nvim'
 Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
 

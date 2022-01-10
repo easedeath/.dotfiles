@@ -1,5 +1,6 @@
 import os
 import subprocess
+from libqtile.backend.base import Window
 
 from libqtile.layout import MonadTall, Floating
 from libqtile.widget import Spacer, Systray, GroupBox, WidgetBox, Sep, Clock, Volume, TextBox
@@ -49,8 +50,8 @@ keys = [
         desc="launches i3-blur lock",
     ),
     Keybind(
-        "<Insert>",
-        lazy.spawn("gnome-screenshot -i"),
+        "M-<Insert>",
+        lazy.spawn("flameshot gui"),
         desc="Screen_Shot",
     ),
     Keybind(
@@ -339,6 +340,10 @@ def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
 
+@hook.subscribe.client_killed
+def client_killed(window: Window):
+    if "Discord" == window.name:
+        os.system('notify-send "connect the cooler you little shit"')
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

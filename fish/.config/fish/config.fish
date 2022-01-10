@@ -82,7 +82,7 @@ alias free='free -m'                      # show sizes in MB
 alias dclean='docker system prune -a --volumes'
 
 alias fetch='~/Public/fm6000 -c=bright_red -n -m=7 -g=7 -l=16'
-alias cf='rm -rf ~/CP && mkdir ~/CP && git init ~/CP' #competetive coding :)
+alias cf='rm -rf ~/CP && mkdir ~/CP ' #competetive coding :)
 alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
 alias lonn='xrandr --output eDP1 --auto'
 #-----GREP COLOR
@@ -90,7 +90,7 @@ alias grep='grep --color=auto'
 
 # Docker
 alias docker="sudo docker"
-alias docker-compose="sudo docker-compose"
+alias "docker-compose"="sudo docker-compose"
 
 colorscript -e crunchbang-mini
 
