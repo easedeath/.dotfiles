@@ -51,7 +51,6 @@ call plug#end()
 
 " let g:rustfmt_autosave = 1
 let mapleader = " "
-
 nnoremap <leader>ff :Neoformat<cr>
 
 colorscheme nord
